@@ -1,0 +1,17 @@
+insta:coder_jetsetjoy
+
+BACKEND
+Programming language :
+javascript,python,java,php
+
+framework:
+Next.JS,Django,SpringBoot,Laravel
+
+Database:
+MangoDB,Pastge SQL,Oracle,MySQL
+
+API:
+Rest,json,Soap
+
+Tools:
+VS Code,Git & Git hub,Cloud Computing,Testing

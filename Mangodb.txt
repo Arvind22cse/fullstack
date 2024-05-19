@@ -1,0 +1,169 @@
+CRUD-Create Read Update Delete
+
+bulkwrite:insert update delete in a single query
+
+insertmany:only insert
+
+read:
+find()-it will fetches the multiple documents that handles the qurey
+findone()-it will fetches the first document when it has many document in the same username
+
+update:
+updateOne()-it will change only values
+updateMany()
+replaceone-it will change the entire doc
+
+delete:
+deleteOne()
+deleteMany()
+
+terminal:
+
+use Arvind
+switched to db Arvind
+db.createCollection("profile");
+{ ok: 1 }
+db.user.insertMany({username:"Arvind" ,roll:"23"},{username:"Ashwanth",roll:"25"});
+MongoInvalidArgumentError: Argument "docs" must be an array of documents
+db.Login.insertOne({username:"Arvind" ,roll:"23"});
+{
+  acknowledged: true,
+  insertedId: ObjectId('663b5237061c064259f23cc8')
+}
+db.Login.insertMany({username:"Arvind" ,roll:"23"},{username:"Ashwanth",rol:"25"});
+MongoInvalidArgumentError: Argument "docs" must be an array of documents
+db.Login.insertMany([{username:"Arvind" ,roll:"23"},{username:"Ashwanth",rol:"25"}]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('663b5297061c064259f23cc9'),
+    '1': ObjectId('663b5297061c064259f23cca')
+  }
+}
+db.Login.insertMany([{username:"Arvind" ,roll:"23"},{username:"Ashwanth",rol:"25"}]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('663b548a061c064259f23ccb'),
+    '1': ObjectId('663b548a061c064259f23ccc')
+  }
+}
+db.login.find({username:"Arvind"});
+db.login.findOne({username:"Arvind"});
+null
+db.login.findOne({username:"Ashwanth"});
+null
+db.Login.findOne({username:"Ashwanth"});
+{
+  _id: ObjectId('663b5297061c064259f23cca'),
+  username: 'Ashwanth',
+  rol: '25'
+}
+db.Login.find({username:"Arvind"});
+{
+  _id: ObjectId('663b5237061c064259f23cc8'),
+  username: 'Arvind',
+  roll: '23'
+}
+{
+  _id: ObjectId('663b5297061c064259f23cc9'),
+  username: 'Arvind',
+  roll: '23'
+}
+{
+  _id: ObjectId('663b548a061c064259f23ccb'),
+  username: 'Arvind',
+  roll: '23'
+}
+db.Login.update({username:"Ashwanth"},{$set:{user:"Bharath"}})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.Login.update({username:"Ashwanth"},{$set:{roll:"31"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.Login.updateOne({username:"Arvind"},{$set:{roll:"22CSR023",mobile:"7010123540"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.Login.updateMany({username:"Arvind"},{$set:{mail:"arvindm.22cse@kongu.edu",mobile:"7010123540"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 3,
+  modifiedCount: 3,
+  upsertedCount: 0
+}
+db.Login.replaceOne({username:"Arvind"},{username:"Arvind M"});
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.Login.replaceMAny({username:"Arvind"},{username:"Arvind M",mobileNumber:"+91-7010123540",email:"arvindm.22cse@kongu.edu",password:"31-08-2004"});
+TypeError: db.Login.replaceMAny is not a function
+db.Login.replaceMany({username:"Arvind"},{username:"Arvind M",mobileNumber:"+91-7010123540",email:"arvindm.22cse@kongu.edu",password:"31-08-2004"});
+TypeError: db.Login.replaceMany is not a function
+db.Login.replace({username:"Arvind"},{username:"Arvind M",mobileNumber:"+91-7010123540",email:"arvindm.22cse@kongu.edu",password:"31-08-2004"});
+TypeError: db.Login.replace is not a function
+db.Login.replace([{username:"Arvind"},{username:"Arvind M",mobileNumber:"+91-7010123540",email:"arvindm.22cse@kongu.edu",password:"31-08-2004"}]);
+TypeError: db.Login.replace is not a function
+Arvind
+db.Login.replaceOne({username:"Arvind"},{username:"Arvind M",mobileNumber:"+91-7010123540",email:"arvindm.22cse@kongu.edu",password:"31-08-2004"});
+
+
+db.Login.deleteOne({username:"Ashwanth"});
+{
+  acknowledged: true,
+  deletedCount: 0
+}
+db.Login.deleteOne({username:"Arvind M"});
+{
+  acknowledged: true,
+  deletedCount: 0
+}
+use Arvind
+switched to db Arvind
+db.Login.deleteOne({username:"Arvind M"});
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.Login.deleteMany({username:"Ashwanth"});
+{
+  acknowledged: true,
+  deletedCount: 2
+}
+Arvind
+
+
+
+const{MongoClient}=requir("")
+
+mongodb://localhost:27017/
+
+
+$eq-equal to
+$ne -not equal to
+
+
+
+npm i express
+npm i mangodb
+
