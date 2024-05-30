@@ -48,6 +48,27 @@ app.post("/insert", async (req, res) => {
         res.status(500).send("Failed to insert data");
     }
 });
+app.post("/insert", async (req, res) => {
+    const { name, description } = req.body;
+    if (!db) {
+        res.status(500).send("Database not initialized");
+        return;
+    }
+    try {
+        // Update or insert the document based on the name
+        await db.collection("items").updateOne(
+            { name },
+            { $set: { description } },
+            { upsert: true } // Create a new document if not found
+        );
+        console.log("Item added or updated:", name);
+        res.redirect("/");
+    } catch (err) {
+        console.error("Error inserting data:", err);
+        res.status(500).send("Failed to insert data");
+    }
+});
+
 
 // Endpoint to retrieve and display a simple report from MongoDB
 app.get("/report", async (req, res) => {
@@ -107,6 +128,25 @@ app.get("/deletemany", async (req, res) => {
     } catch (err) {
         console.error("Error deleting data:", err);
         res.status(500).send("Failed to delete data");
+    }
+});
+app.post("/updateOne", async (req, res) => {
+    const { filter, newDescription } = req.body;
+    if (!db) {
+        res.status(500).send("Database not initialized");
+        return;
+    }
+    try {
+        // Update all documents that match the filter
+        await db.collection("items").updateOne(
+            {"description":filter},
+            { $set: { description: newDescription } }
+        );
+        console.log("Updated multiple documents");
+        res.redirect("/");
+    } catch (err) {
+        console.error("Error updating data:", err);
+        res.status(500).send("Failed to update data");
     }
 });
 

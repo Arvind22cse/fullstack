@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+          margin: 0;
+          padding: 0;
+          height: 100vh;
+          display: flex;
+          justify-content:center;
+          align-items: center;
+          position: relative;
+        } 
+     
+    .container {
+      
+      opacity: 0.5;
+      position: relative;
+      width: 600px;
+    
+      padding: 30px;
+      border-radius: 10px;
+      position: relative;
+    
+      
+      transition: opacity 0.3s; 
+      font-family: Arial, Helvetica, sans-serif;
+      color:white;
+    
+    }
+    .but{
+      background-color: rgb(106, 70, 8);
+      border-radius: 35px;
+    }
+    .but:hover{
+      background-color: rgb(21, 15, 4);
+      color:white
+    }
+    body{
+      margin:0;
+      padding: 0;
+      background-image:url("https://i.pinimg.com/originals/c5/34/1a/c5341a72c861bd63e30694b250d26b68.jpg") ;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    
+      </style>
+    </head>
+    <body>
+      <!-- <img src="https://i.pinimg.com/originals/c5/34/1a/c5341a72c861bd63e30694b250d26b68.jpg" style="width:100%;height :100% ;position:absolute;background-size:cover"> -->
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const img = document.getElementById("img");
+          const container = document.querySelector(".container");
+    
+          container.addEventListener("mouseenter", () => {
+            img.style.opacity = 0.9; 
+          });
+    
+          container.addEventListener("mouseleave", () => {
+            img.style.opacity = 0.5;
+          });
+        });
+      </script>
+      <div class="container" style="background-image: url(https://wallpaperaccess.com/full/701499.jpg); object-fit:cover;background-repeat: no-repeat;  
+      background-attachment:fixed;background-repeat:no-repeat;width: 40%;height:auto" id="img">    
+    <center> <h1 style="color: white; font-family:Algerian">PROFILE</h1></center>
+    <form action="/insert" method="post">
+      <label style="color:white"> Enter your Name:  </label><input type="text" name="name" placeholder="Name"><br><br>
+      <label style="color: white;"> Enter your E-Mail:  </label><input type="email" name="email" placeholder="Email"><br><br>
+        <input type="submit" class="but" value="insert">
+       </form><br><br>
+       <form action="/delete" method="get">
+        Type a name to be deleted: <input type="text" id="deleteName" name="nameToDelete">
+        <input type="submit" value="DELETE" class="but">
+      </form><br><br>
+
+      <form action="/update" method="post">
+        Old value: <input type="text" id="up" name="filter"><br><br>
+        new value:<input type="text" id="up" name="newDescription"><br>
+        <input type="submit" value="UPDATE" class="but">
+      </form><br>
+      <h1>Generate Report</h1>
+  <a href="/report">Generate Report</a>
+
+    </div>
+</body>
+</html>
