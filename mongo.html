@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice MongoDB</title>
+    <style>
+        #container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: grey;
+            margin-top: 20px;
+            padding: 20px;
+            width:400px;
+            position: relative;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        #name{
+        width:200px;
+        
+        }
+        #email{
+            width:200px;
+        }
+        button{
+            width:150px;
+            height: 30px;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+          margin-left: 50px;
+
+        }#read{
+            color:rgb(0, 0, 0);
+            text-decoration: none;
+            border: 1px solid black;
+            background-color: black;
+            color: white;
+            width:150px;
+            height:30px;
+            text-align: center;
+            padding-top: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Practice Mongodb</h1>
+        <form action="/insert" method="post">
+            Name:<input type="text" id="name" name="name" ><br><br>
+            Email:<input type="text" id="email" name="email" ><br><br>
+            <button type="submit">Insert</button>
+        </form>
+        <form action="/update" method="post">
+            Name:<input type="text" id="name" name="nname" ><br><br>
+            Email:<input type="text" id="email" name="nemail" ><br><br>
+            <button type="submit">Update</button>
+        </form>
+        <form action="/delete" method="post">
+            Name:<input type="text" id="name" name="namedel"><br><br>
+            <button type="submit">Delete</button>
+        </form>
+        <a href="/read" id="read">Read</a>
+    </div>
+</body>
+</html>

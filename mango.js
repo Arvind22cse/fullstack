@@ -77,9 +77,9 @@ app.get("/report", async (req, res) => {
         console.log(items);
 
         // Create HTML table for the report
-        let tableContent = "<h1>Report</h1><table border='1'><tr><th>Name</th><th>Description</th></tr>";
-        tableContent += items.map(item => `<tr><td>${item.name}</td><td>${item.description}</td></tr>`).join("");
-        tableContent += "</table><a href='/'>Back to form</a>"; // Add link to go back to the form
+        let tableContent = "<body style='background-color:black;'><h1>Report</h1><table  id='table' style='background-color:black;color:white ;border:none;display:flex;justify-content:center;'><tr><th>Name</th><th>Description</th></tr>";
+        tableContent += items.map(item => `<tr><td>${item.name}</td><td>${item.description}</td></tr>`);
+        tableContent += "</table><a href='/'>Back to form</a></body>"; // Add link to go back to the form
 
         res.send(tableContent); // Send the report HTML content as response
     } catch (err) {
