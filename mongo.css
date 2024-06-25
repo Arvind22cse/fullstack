@@ -1,0 +1,25 @@
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: grey;
+    margin-top: 20px;
+    padding: 20px;
+    width:400px;
+    position: relative;
+}
+body{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+#name{
+width:200px;
+}
+#email{
+    width:200px;
+}
+button{
+    width:200px;
+    justify-content: center;
+}
